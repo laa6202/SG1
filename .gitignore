@@ -1,3 +1,5 @@
 
 fpga/dev/db/SG_logic1.db_info
 fpga/dev/db/SG_logic1.quiproj.3680.rdr.flock
+*.db_info
+fpga/dev/db/top.sld_design_entry.sci
