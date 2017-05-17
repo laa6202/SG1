@@ -6,3 +6,14 @@ fpga/dev/db/top.sld_design_entry.sci
 *.summary
 *.rpt
 fpga/dev/incremental_db/README
+*.tdf
+*.qip
+*.cdb
+*.hdb
+*.qmsg
+*.dpi
+/fpga/dev/db
+/fpga/dev/incremental_db
+/fpga/dev/output_files/top.fit.smsg
+/fpga/dev/output_files/top.jdi
+/fpga/dev/output_files/top.sld

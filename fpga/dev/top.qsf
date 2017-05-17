@@ -37,7 +37,6 @@
 # -------------------------------------------------------------------------- #
 
 
-set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE15F23C8
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name TOP_LEVEL_ENTITY top
@@ -234,16 +233,16 @@ set_global_assignment -name VERILOG_FILE ../src/commu_top/urx_filter.v
 set_global_assignment -name VERILOG_FILE ../src/commu_top/phy_utx.v
 set_global_assignment -name VERILOG_FILE ../src/commu_top/phy_urx.v
 set_global_assignment -name VERILOG_FILE ../src/commu_top/commu_top.v
-set_global_assignment -name VERILOG_FILE ../src/clk_rst_top/pluse_us_gen.v
 set_global_assignment -name VERILOG_FILE ../src/sensor_top/alg_box.v
 set_global_assignment -name VERILOG_FILE ../src/sensor_top/lega_box.v
 set_global_assignment -name VERILOG_FILE ../src/sensor_top/sensor_core.v
 set_global_assignment -name VERILOG_FILE ../src/sensor_top/echo_handle.v
-set_global_assignment -name SDC_FILE top.sdc
+set_global_assignment -name VERILOG_FILE ../ip/pll/sgpll.v
+set_global_assignment -name VERILOG_FILE ../src/clk_rst_top/pluse_us_gen.v
 set_global_assignment -name VERILOG_FILE ../src/clk_rst_top/clk_rst_top.v
 set_global_assignment -name VERILOG_FILE ../src/hmi_top/hmi_top.v
 set_global_assignment -name VERILOG_FILE ../src/top.v
-set_global_assignment -name QIP_FILE ../ip/pll/sgpll.qip
+set_global_assignment -name SDC_FILE top.sdc
 set_global_assignment -name SIGNALTAP_FILE stp1.stp
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp
