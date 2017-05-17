@@ -39,6 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE15F23C8
+set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name TOP_LEVEL_ENTITY top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 16.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:01:44  APRIL 16, 2017"
@@ -106,16 +107,6 @@ set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[11] -
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[22] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[29] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[30] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_global_assignment -name VERILOG_FILE ../src/sensor_top/alg_box.v
-set_global_assignment -name VERILOG_FILE ../src/sensor_top/lega_box.v
-set_global_assignment -name VERILOG_FILE ../src/sensor_top/sensor_core.v
-set_global_assignment -name VERILOG_FILE ../src/sensor_top/echo_handle.v
-set_global_assignment -name SDC_FILE top.sdc
-set_global_assignment -name VERILOG_FILE ../src/clk_rst_top/clk_rst_top.v
-set_global_assignment -name VERILOG_FILE ../src/hmi_top/hmi_top.v
-set_global_assignment -name VERILOG_FILE ../src/top.v
-set_global_assignment -name QIP_FILE ../ip/pll/sgpll.qip
-set_global_assignment -name SIGNALTAP_FILE stp1.stp
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "alg_box:u_alg_box|cnt_redo[0]" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "alg_box:u_alg_box|cnt_redo[1]" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to "alg_box:u_alg_box|cnt_redo[2]" -section_id auto_signaltap_0
@@ -239,5 +230,20 @@ set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[24] -
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[25] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[27] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[31] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_global_assignment -name VERILOG_FILE ../src/commu_top/urx_filter.v
+set_global_assignment -name VERILOG_FILE ../src/commu_top/phy_utx.v
+set_global_assignment -name VERILOG_FILE ../src/commu_top/phy_urx.v
+set_global_assignment -name VERILOG_FILE ../src/commu_top/commu_top.v
+set_global_assignment -name VERILOG_FILE ../src/clk_rst_top/pluse_us_gen.v
+set_global_assignment -name VERILOG_FILE ../src/sensor_top/alg_box.v
+set_global_assignment -name VERILOG_FILE ../src/sensor_top/lega_box.v
+set_global_assignment -name VERILOG_FILE ../src/sensor_top/sensor_core.v
+set_global_assignment -name VERILOG_FILE ../src/sensor_top/echo_handle.v
+set_global_assignment -name SDC_FILE top.sdc
+set_global_assignment -name VERILOG_FILE ../src/clk_rst_top/clk_rst_top.v
+set_global_assignment -name VERILOG_FILE ../src/hmi_top/hmi_top.v
+set_global_assignment -name VERILOG_FILE ../src/top.v
+set_global_assignment -name QIP_FILE ../ip/pll/sgpll.qip
+set_global_assignment -name SIGNALTAP_FILE stp1.stp
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp
