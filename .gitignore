@@ -17,3 +17,4 @@ fpga/dev/incremental_db/README
 /fpga/dev/output_files/top.fit.smsg
 /fpga/dev/output_files/top.jdi
 /fpga/dev/output_files/top.sld
+/fpga/sim/tb_top/work
