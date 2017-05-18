@@ -11,7 +11,7 @@ add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/cnt_us
 add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/start_uart
 add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/urx_data_falling
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1131 ns} 0}
+WaveRestoreCursors {{Cursor 1} {2923 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 317
 configure wave -valuecolwidth 100
@@ -27,4 +27,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {1113 ns} {1311 ns}
+WaveRestoreZoom {0 ns} {3150 ns}
