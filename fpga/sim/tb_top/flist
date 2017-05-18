@@ -32,4 +32,5 @@ tb.v
 ../../src/commu_top/urx_filter.v
 ../../src/commu_top/phy_urx.v
 ../../src/commu_top/phy_utx.v
+../../src/commu_top/fx_master.v
 

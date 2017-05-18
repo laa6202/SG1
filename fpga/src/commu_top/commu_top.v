@@ -22,8 +22,8 @@ input 	uart_rx;
 //fx_bus
 output 				fx_wr;
 output [7:0]	fx_data;
-output [31:0]	fx_waddr;
-output [31:0]	fx_raddr;
+output [21:0]	fx_waddr;
+output [21:0]	fx_raddr;
 output 				fx_rd;
 input  [7:0]	fx_q;
 //clk rst
@@ -56,10 +56,29 @@ phy_utx u_phy_utx(
 .tx_vld(tx_vld),
 //clk rst
 .clk_sys(clk_sys),
+.pluse_us(pluse_us),
 .rst_n(rst_n)
 );
 
 
+//--------- fx_bus master --------
+fx_master u_fx_master(
+//phy data
+.rx_data(rx_data),
+.rx_vld(rx_vld),
+.tx_data(tx_data),
+.tx_vld(tx_vld),
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 endmodule
