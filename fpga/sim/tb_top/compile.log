@@ -4,12 +4,12 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module rst_gen
 -- Skipping module key_gen
 -- Skipping module hc_sr04
--- Compiling module rs232
+-- Skipping module rs232
 -- Skipping module tb
--- Compiling module top
+-- Skipping module top
 -- Skipping module clk_rst_top
 -- Skipping module pluse_us_gen
--- Compiling module control_top
+-- Skipping module control_top
 -- Skipping module hmi_top
 -- Skipping module echo_handle
 -- Skipping module sensor_core
@@ -18,7 +18,7 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module commu_top
 -- Skipping module urx_filter
 -- Skipping module phy_urx
--- Skipping module phy_utx
+-- Compiling module phy_utx
 -- Skipping module fx_master
 
 Top level modules:

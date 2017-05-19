@@ -139,4 +139,24 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 end
 
 
+//---------- gen tx_data and tx_vld -----------
+reg [7:0]	tx_data;
+reg 			tx_vld;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)	begin
+		tx_data <= 8'h0;
+		tx_vld <= 1'b0;
+	end
+	else if(st_fx == S_FDAT)	begin
+		tx_data <= fx_q;
+		tx_vld <= 1'b1;
+	end
+	else begin
+		tx_data <= 8'h0;
+		tx_vld <= 1'b0;
+	end
+end
+
+		
+
 endmodule

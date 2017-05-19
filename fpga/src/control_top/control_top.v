@@ -27,7 +27,7 @@ input rst_n;
 
 //------- no logic -------
 wire [7:0] fx_q;
-assign fx_q = 8'h5a;
+assign fx_q = 8'ha5;
 
 endmodule
 

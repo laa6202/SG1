@@ -12,7 +12,7 @@ clk_sys,
 pluse_us,
 rst_n
 );
-output 				uart_rx;
+input 				uart_rx;
 output [7:0]	rx_data;
 output 				rx_vld;
 //clk rst
