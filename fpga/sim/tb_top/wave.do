@@ -1,15 +1,22 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/rx_data
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/rx_vld
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/clk_sys
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/rst_n
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/pluse_us
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/urx_data
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/start_uart
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/cnt_us
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/start_uart
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/urx_data_falling
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/rx_data
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/rx_vld
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/fx_wr
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/fx_data
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/fx_waddr
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/fx_raddr
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/fx_rd
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/fx_q
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/clk_sys
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/rst_n
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/st_fx
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/done_wait
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/cnt_wait
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/op_act
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/op_dev
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/op_addr
+add wave -noupdate /tb/sg1_top/u_commu_top/u_fx_master/op_data
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {2923 ns} 0}
 quietly wave cursor active 1
