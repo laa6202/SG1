@@ -6,6 +6,7 @@ echo,
 fire_measure,
 done_measure,
 data_measure,
+err_measure,
 clk_sys,
 clk_slow,
 rst_n
@@ -16,6 +17,7 @@ input echo;
 input fire_measure;
 output done_measure;
 output [31:0] data_measure;
+output err_measure;
 input clk_sys;
 input clk_slow;
 input rst_n;
@@ -69,7 +71,7 @@ assign data_measure = cnt_echo;
 //--------- get echo done flag --------
 wire echo_falling =  echo_d1 & (~echo_d0);
 wire done_measure = echo_falling;
-
+wire err_measure = 1'b0;
 
 endmodule
 
