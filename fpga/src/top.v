@@ -71,6 +71,7 @@ control_top u_ctrl_top(
 .fx_raddr(fx_raddr),
 .fx_q(fx_q),
 //clk rst
+.dev_id(6'h1),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );

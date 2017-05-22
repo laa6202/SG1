@@ -229,6 +229,9 @@ set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[24] -
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[25] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[27] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[31] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_global_assignment -name VERILOG_FILE ../src/control_top/cfg_reg.v
+set_global_assignment -name VERILOG_FILE ../src/control_top/control_top.v
+set_global_assignment -name VERILOG_FILE ../src/commu_top/fx_master.v
 set_global_assignment -name VERILOG_FILE ../src/commu_top/urx_filter.v
 set_global_assignment -name VERILOG_FILE ../src/commu_top/phy_utx.v
 set_global_assignment -name VERILOG_FILE ../src/commu_top/phy_urx.v
