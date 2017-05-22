@@ -60,14 +60,14 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else if(pluse_us)	begin
 		case(cnt_us)
 			8'd1 : uart_tx <= 1'b0;		//start bit
-			8'd9 : uart_tx <= lock_tx[7];
-			8'd18 : uart_tx <= lock_tx[6];
-			8'd26 : uart_tx <= lock_tx[5];
-			8'd35 : uart_tx <= lock_tx[4];
-			8'd44 : uart_tx <= lock_tx[3];
-			8'd53 : uart_tx <= lock_tx[2];
-			8'd61 : uart_tx <= lock_tx[1];
-			8'd70 : uart_tx <= lock_tx[0];
+			8'd9 : uart_tx <= lock_tx[0];
+			8'd18 : uart_tx <= lock_tx[1];
+			8'd26 : uart_tx <= lock_tx[2];
+			8'd35 : uart_tx <= lock_tx[3];
+			8'd44 : uart_tx <= lock_tx[4];
+			8'd53 : uart_tx <= lock_tx[5];
+			8'd61 : uart_tx <= lock_tx[6];
+			8'd70 : uart_tx <= lock_tx[7];
 			8'd79 : uart_tx <= xor_tx;
 			8'd87 : uart_tx <= 1'b1;	//stop bit
 			default : ;

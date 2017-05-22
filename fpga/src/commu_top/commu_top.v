@@ -1,4 +1,7 @@
 //commu_top.v
+//`define LOOP_BACK_UART_TEST
+//`define LOOP_BACK_UART_TEST
+
 
 module commu_top(
 //uart slave
@@ -60,7 +63,10 @@ phy_utx u_phy_utx(
 .rst_n(rst_n)
 );
 
-
+`ifdef LOOP_BACK_UART_TEST
+assign tx_data = rx_data;
+assign tx_vld = rx_vld;
+`else
 //--------- fx_bus master --------
 fx_master u_fx_master(
 //phy data
@@ -79,7 +85,7 @@ fx_master u_fx_master(
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
-
+`endif
 
 endmodule
 
