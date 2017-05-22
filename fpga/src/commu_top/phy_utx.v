@@ -25,15 +25,12 @@ reg [7:0] cnt_us;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		cnt_us <= 8'd0;
-	else if(pluse_us)	begin
-		if(cnt_us== 8'd99)
+	else if(cnt_us== 8'd99)
 			cnt_us <= 8'd0;
-		else if(tx_vld)
-			cnt_us <= 8'd1;
-		else if(cnt_us != 8'd0)
-			cnt_us <= cnt_us + 8'h1;
-		else ;
-	end
+	else if(tx_vld)
+		cnt_us <= 8'd1;		
+	else if(cnt_us != 8'd0)
+			cnt_us <= pluse_us ? (cnt_us + 8'h1) : cnt_us;
 	else ;
 end
 
@@ -68,7 +65,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 			8'd53 : uart_tx <= lock_tx[5];
 			8'd61 : uart_tx <= lock_tx[6];
 			8'd70 : uart_tx <= lock_tx[7];
-			8'd79 : uart_tx <= xor_tx;
+			8'd79 : uart_tx <= 1'b1;	//no XOR_TX
 			8'd87 : uart_tx <= 1'b1;	//stop bit
 			default : ;
 		endcase

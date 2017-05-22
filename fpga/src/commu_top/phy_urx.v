@@ -93,7 +93,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		rx_data <= 8'h0;
 	end
 	else begin
-		rx_vld <= (cnt_us == 8'd97) ? 1'b1 : 1'b0;
+		rx_vld <= (cnt_us == 8'd97) ? pluse_us : 1'b0;
 		rx_data <= (cnt_us == 8'd97) ? rec_data : rx_data;
 	end
 end
