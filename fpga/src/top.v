@@ -124,7 +124,8 @@ echo_handle u_echo_handle(
 );
 
 
-alg_box u_alg_box(
+//alg_box u_alg_box(
+sensor_core u_sersor(
 .trig(s1_trig),
 .echo(s1_echo_p1),
 .fire_measure(key_vld),
