@@ -45,6 +45,11 @@ top sg1_top(
 //uart slave
 .uart_tx(uart_miso),
 .uart_rx(uart_mosi),
+//ov inf
+.ov_vcc(),
+.ov_gnd(),
+.ov_xclk(),
+.ov_rstn(),
 //hmi_top
 .led(),
 .key_n(key_n),

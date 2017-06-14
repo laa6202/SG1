@@ -5,6 +5,16 @@ module top(
 //sensor
 s1_trig,
 s1_echo,
+//ov7670
+ov_vcc,
+ov_gnd,
+ov_vsync,
+ov_href,
+ov_pclk,
+ov_xclk,
+ov_data,
+ov_rstn,
+ov_pwdn,
 //uart inf
 uart_tx,
 uart_rx,
@@ -22,6 +32,16 @@ hrst_n
 //sensor
 output	s1_trig;
 input		s1_echo;
+//ov7670
+output ov_vcc;
+output ov_gnd;
+input  ov_vsync;
+input  ov_href;
+input  ov_pclk;
+output ov_xclk;
+input  [7:0]	ov_data;
+output ov_rstn;
+output ov_pwdn;
 //uart slave
 output 	uart_tx;
 input 	uart_rx;
@@ -124,6 +144,11 @@ echo_handle u_echo_handle(
 );
 
 
+
+
+
+
+
 //alg_box u_alg_box(
 sensor_core u_sersor(
 .trig(s1_trig),
@@ -137,6 +162,23 @@ sensor_core u_sersor(
 .rst_n(rst_n)
 );
 
+
+
+//---------- ov 7670 ------
+ov_inf u_ov_inf(
+.ov_vcc(ov_vcc),
+.ov_gnd(ov_gnd),
+.ov_vsync(ov_vsync),
+.ov_href(ov_href),
+.ov_pclk(ov_pclk),
+.ov_xclk(ov_xclk),
+.ov_data(ov_data),
+.ov_rstn(ov_rstn),
+.ov_pwdn(ov_pwdn),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 endmodule

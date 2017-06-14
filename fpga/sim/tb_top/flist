@@ -36,3 +36,5 @@ tb.v
 ../../src/commu_top/phy_utx.v
 ../../src/commu_top/fx_master.v
 
+../../src/ov_inf/ov_inf.v
+
