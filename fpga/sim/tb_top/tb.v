@@ -48,8 +48,15 @@ top sg1_top(
 //ov inf
 .ov_vcc(),
 .ov_gnd(),
+.ov_vsync(),
+.ov_href(),
+.ov_pclk(),
 .ov_xclk(),
+.ov_data(),
 .ov_rstn(),
+.ov_pwdn(),
+.ov_sioc(),
+.ov_siod(),
 //hmi_top
 .led(),
 .key_n(key_n),

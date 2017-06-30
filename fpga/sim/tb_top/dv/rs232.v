@@ -39,7 +39,7 @@ initial begin
 #700		send_utx(8'h01);
 #200		send_utx(8'h00);
 #200		send_utx(8'h85);
-#200		send_utx(8'haa);
+#200		send_utx(8'h00);
 
 end
 

@@ -6,12 +6,15 @@ ov_gnd,
 ov_vsync,
 ov_href,
 ov_pclk,
-ov_xclk,
+ov_xclk,		//24MHz
 ov_data,
 ov_rstn,
 ov_pwdn,
+ov_sioc,
+ov_siod,
 //clk rst
 clk_sys,
+pluse_us,
 rst_n
 
 );
@@ -24,8 +27,11 @@ output ov_xclk;
 input  [7:0]	ov_data;
 output ov_rstn;
 output ov_pwdn;
+output ov_sioc;
+inout  ov_siod;
 //clk rst
 input clk_sys;
+input pluse_us;
 input rst_n;
 //-------------------------------------
 
@@ -52,5 +58,17 @@ always @(posedge clk_sys)	begin
 	ov_pwdn <= 1'b0;
 end
 	
+	
+	
+iic_inf u_iic_inf(
+.scl(ov_sioc),		//100K
+.sda(ov_siod),
+.clk_sys(clk_sys),
+.pluse_us(pluse_us),
+.rst_n(rst_n)
+);
+
+
+
 endmodule
 

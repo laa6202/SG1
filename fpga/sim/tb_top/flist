@@ -37,4 +37,5 @@ tb.v
 ../../src/commu_top/fx_master.v
 
 ../../src/ov_inf/ov_inf.v
+../../src/ov_inf/iic_inf.v
 

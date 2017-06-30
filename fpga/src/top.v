@@ -15,6 +15,8 @@ ov_xclk,
 ov_data,
 ov_rstn,
 ov_pwdn,
+ov_sioc,
+ov_siod,
 //uart inf
 uart_tx,
 uart_rx,
@@ -42,6 +44,8 @@ output ov_xclk;
 input  [7:0]	ov_data;
 output ov_rstn;
 output ov_pwdn;
+output ov_sioc;
+inout  ov_siod;
 //uart slave
 output 	uart_tx;
 input 	uart_rx;
@@ -175,8 +179,11 @@ ov_inf u_ov_inf(
 .ov_data(ov_data),
 .ov_rstn(ov_rstn),
 .ov_pwdn(ov_pwdn),
+.ov_sioc(ov_sioc),
+.ov_siod(ov_siod),
 //clk rst
 .clk_sys(clk_sys),
+.pluse_us(pluse_us),
 .rst_n(rst_n)
 );
 
