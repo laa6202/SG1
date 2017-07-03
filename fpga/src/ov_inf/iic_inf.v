@@ -73,8 +73,8 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 end
 
 
-wire scl = scl_nostop;
-
+wire scl = 1'bz;//scl_nostop;
+wire sda = 1'bz;
 
 endmodule
 

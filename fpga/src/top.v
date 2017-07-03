@@ -64,6 +64,7 @@ input		hrst_n;
 //--------- clk rst -----------
 wire clk_sys;
 wire clk_slow;
+wire clk_24m;
 wire rst_n;
 wire pluse_us;
 clk_rst_top u_clk_rst(
@@ -73,6 +74,7 @@ clk_rst_top u_clk_rst(
 .mclk2(mclk2),
 .clk_sys(clk_sys),
 .clk_slow(clk_slow),
+.clk_24m(clk_24m),
 .pluse_us(pluse_us),
 .rst_n(rst_n)
 );
@@ -183,6 +185,7 @@ ov_inf u_ov_inf(
 .ov_siod(ov_siod),
 //clk rst
 .clk_sys(clk_sys),
+.clk_24m(clk_24m),
 .pluse_us(pluse_us),
 .rst_n(rst_n)
 );

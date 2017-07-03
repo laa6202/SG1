@@ -8,6 +8,7 @@ mclk1,
 mclk2,
 clk_sys,
 clk_slow,
+clk_24m,
 pluse_us,
 rst_n
 );
@@ -17,6 +18,7 @@ input mclk1;
 input mclk2;
 output clk_sys;
 output clk_slow;
+output clk_24m;
 output pluse_us;
 output rst_n;
 //---------------------------------
@@ -27,12 +29,14 @@ assign rst_n = hrst_n;
 
 wire clk_100m;
 wire clk_1m;
+wire clk_24m;
 `ifndef SIM
 sgpll u_sgpll(
 .areset(1'b0),
 .inclk0(mclk0),
 .c0(clk_100m),
 .c1(clk_1m),
+.c2(clk_24m),
 .locked()
 );
 `else
