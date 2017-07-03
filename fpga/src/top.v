@@ -80,6 +80,23 @@ clk_rst_top u_clk_rst(
 );
 
 
+
+//----------- fx_bus ---------
+wire  [7:0]	fx_q;
+wire [7:0] fx_q_control;
+wire [7:0] fx_q_ov_inf;
+fx_bus u_fx_bus(
+//for more device
+.fx_q_control(fx_q_control),
+.fx_q_ov_inf(fx_q_ov_inf),
+//for master
+.fx_q(fx_q),
+//clk rsr
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 //------------ control_top ------------
 //fx_bus
 wire 				fx_wr;
@@ -87,7 +104,7 @@ wire [7:0]	fx_data;
 wire [21:0]	fx_waddr;
 wire [21:0]	fx_raddr;
 wire 				fx_rd;
-wire  [7:0]	fx_q;
+
 control_top u_ctrl_top(
 //fx bus
 .fx_waddr(fx_waddr),
@@ -95,7 +112,7 @@ control_top u_ctrl_top(
 .fx_data(fx_data),
 .fx_rd(fx_rd),
 .fx_raddr(fx_raddr),
-.fx_q(fx_q),
+.fx_q(fx_q_control),
 //clk rst
 .dev_id(6'h1),
 .clk_sys(clk_sys),
@@ -183,6 +200,14 @@ ov_inf u_ov_inf(
 .ov_pwdn(ov_pwdn),
 .ov_sioc(ov_sioc),
 .ov_siod(ov_siod),
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q_ov_inf),
+.dev_id(6'h02),
 //clk rst
 .clk_sys(clk_sys),
 .clk_24m(clk_24m),

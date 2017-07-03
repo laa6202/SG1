@@ -3,6 +3,15 @@
 module iic_inf(
 scl,		//100K
 sda,
+// registers 
+stu_iic_status,	
+cfg_iic_devid,	
+cfg_iic_addr,	
+cfg_iic_wdata,	
+stu_iic_rdata,	
+act_iic_write,
+act_iic_read,
+//clk rst
 clk_sys,
 pluse_us,
 rst_n
@@ -10,6 +19,15 @@ rst_n
 
 output scl;
 inout	 sda;
+// registers 
+output  [7:0] stu_iic_status;	
+input 	[7:0] cfg_iic_devid;	
+input 	[7:0] cfg_iic_addr;		
+input 	[7:0] cfg_iic_wdata;	
+output  [7:0] stu_iic_rdata;	
+input 	[7:0] act_iic_write;
+input 	[7:0] act_iic_read;	
+//clk rst
 input clk_sys;
 input pluse_us;
 input rst_n;

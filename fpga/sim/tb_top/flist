@@ -19,6 +19,7 @@ dv/rs232.v
 tb.v
 
 ../../src/top.v
+../../src/fx_bus.v
 ../../src/clk_rst_top/clk_rst_top.v
 ../../src/clk_rst_top/pluse_us_gen.v
 ../../src/control_top/control_top.v
@@ -38,4 +39,5 @@ tb.v
 
 ../../src/ov_inf/ov_inf.v
 ../../src/ov_inf/iic_inf.v
+../../src/ov_inf/iic_reg.v
 

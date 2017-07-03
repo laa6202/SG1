@@ -12,6 +12,14 @@ ov_rstn,
 ov_pwdn,
 ov_sioc,
 ov_siod,
+//fx bus
+fx_waddr,
+fx_wr,
+fx_data,
+fx_rd,
+fx_raddr,
+fx_q,
+dev_id,
 //clk rst
 clk_sys,
 clk_24m,
@@ -30,15 +38,24 @@ output ov_rstn;
 output ov_pwdn;
 output ov_sioc;
 inout  ov_siod;
+//fx_bus
+input 				fx_wr;
+input [7:0]		fx_data;
+input [21:0]	fx_waddr;
+input [21:0]	fx_raddr;
+input 				fx_rd;
+output  [7:0]	fx_q;
+input [5:0] dev_id;
 //clk rst
 input clk_sys;
 input clk_24m;
 input pluse_us;
 input rst_n;
 //-------------------------------------
+//-------------------------------------
 
 
-
+//----------- mclk -----------
 wire ov_xclk;
 `ifdef SIM
 reg [1:0] cnt_cycle;
@@ -53,32 +70,66 @@ assign	ov_xclk = clk_24m;
 `endif
 
 
-
+//---------- power down and rst --------
+reg ov_vcc;
+reg ov_gnd;
+reg ov_rstn;
+reg ov_pwdn;
 always @(posedge clk_sys)	begin
 	ov_vcc <= 1'b1;
 	ov_gnd <= 1'b0;
-
 	ov_rstn <= rst_n;
 	ov_pwdn <= 1'b0;
 end
 
 
+
+//-------- iic regs -------
+iic_reg u_iic_reg(
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q),
+// registers 
+.stu_iic_status(stu_iic_status),	
+.cfg_iic_devid(cfg_iic_devid),	
+.cfg_iic_addr(cfg_iic_addr),	
+.cfg_iic_wdata(cfg_iic_wdata),	
+.stu_iic_rdata(stu_iic_rdata),	
+.act_iic_write(act_iic_write),
+.act_iic_read(act_iic_read),
+//clk rst
+.dev_id(dev_id),
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+
+);
+
+
 	
-reg ov_vcc;
-reg ov_gnd;
-reg ov_rstn;
-reg ov_pwdn;
-	
+//------------ iic -----------
 iic_inf u_iic_inf(
 .scl(ov_sioc),		//100K
 .sda(ov_siod),
+// registers 
+.stu_iic_status(stu_iic_status),	
+.cfg_iic_devid(cfg_iic_devid),	
+.cfg_iic_addr(cfg_iic_addr),	
+.cfg_iic_wdata(cfg_iic_wdata),	
+.stu_iic_rdata(stu_iic_rdata),	
+.act_iic_write(act_iic_write),
+.act_iic_read(act_iic_read),
+//clk rst
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),
 .rst_n(rst_n)
 );
 
 
-
+//---------- for debug -----------
 reg [7:0] vs_reg;
 always @ (posedge clk_sys)
 	vs_reg <= {vs_reg[6:0],ov_vsync};
