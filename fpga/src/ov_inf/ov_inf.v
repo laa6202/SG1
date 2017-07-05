@@ -85,6 +85,14 @@ end
 
 
 //-------- iic regs -------
+// registers 
+wire [7:0] stu_iic_status;	
+wire [7:0] cfg_iic_devid;	
+wire [7:0] cfg_iic_addr;		
+wire [7:0] cfg_iic_wdata;	
+wire [7:0] stu_iic_rdata;	
+wire [7:0] act_iic_write;
+wire [7:0] act_iic_read;	
 iic_reg u_iic_reg(
 //fx bus
 .fx_waddr(fx_waddr),

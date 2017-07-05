@@ -23,8 +23,8 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module phy_utx
 -- Skipping module fx_master
 -- Skipping module ov_inf
--- Skipping module iic_inf
--- Compiling module iic_reg
+-- Compiling module iic_inf
+-- Skipping module iic_reg
 
 Top level modules:
 	tb

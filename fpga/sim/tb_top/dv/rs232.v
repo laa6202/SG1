@@ -36,13 +36,42 @@ endtask
 
 initial begin
 				uart_tx <= 1'b1;
-#700		send_utx(8'h01);
+//iic devid = 0x42
+#700		send_utx(8'h82);
+#200		send_utx(8'h00);
+#200		send_utx(8'h02);
+#200		send_utx(8'h42);
+//iic addr = 0x30
+#500		send_utx(8'h82);
+#200		send_utx(8'h00);
+#200		send_utx(8'h03);
+#200		send_utx(8'h20);
+//iic wdata = 0x55
+#500		send_utx(8'h82);
+#200		send_utx(8'h00);
+#200		send_utx(8'h04);
+#200		send_utx(8'h55);
+//iic action write
+#500		send_utx(8'h82);
+#200		send_utx(8'h00);
+#200		send_utx(8'h06);
+#200		send_utx(8'h03);
+end
+
+
+
+endmodule
+
+
+/*
+//backup for rs232 core op
+initial begin
+				uart_tx <= 1'b1;
+#700		send_utx(8'h02);
 #200		send_utx(8'h00);
 #200		send_utx(8'h85);
 #200		send_utx(8'h00);
 
 end
 
-
-
-endmodule
+*/

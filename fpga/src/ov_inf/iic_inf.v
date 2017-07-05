@@ -35,6 +35,8 @@ input rst_n;
 //-----------------------------------------
 
 
+
+
 // if SIM 1us = 1cycle
 reg [3:0] cnt_us;
 always  @(posedge clk_sys or negedge rst_n)	begin
@@ -65,30 +67,47 @@ end
 
 
 //--------- main FSM ------------
-parameter S_IDLE = 4'h0;
-parameter S_START = 4'h1;
-parameter S_WDAT1 = 4'h2;
-parameter S_WACK1 = 4'h3;
-parameter S_WDAT2 = 4'h4;
-parameter S_WACK2 = 4'h5;
-parameter S_RDAT1 = 4'h6;
-parameter S_RACK1 = 4'h7;
-parameter S_RDAT2 = 4'h8;
-parameter S_RACK2 = 4'h9;
-parameter S_RDAT3 = 4'ha;
-parameter S_RACK3 = 4'hb;
-parameter S_DONE = 4'hf;
-reg [3:0] st_iic;
+parameter S_IDLE = 5'h0;
+parameter S_WSTART = 5'h1;
+parameter S_WDAT1 = 5'h2;
+parameter S_WACK1 = 5'h3;
+parameter S_WDAT2 = 5'h4;
+parameter S_WACK2 = 5'h5;
+parameter S_WDAT3 = 5'h6;
+parameter S_WACK3 = 5'h7;
+parameter S_STOP = 5'he;
+parameter S_DONE = 5'hf;
+parameter S_RSTART1 = 5'h11;
+parameter S_RDAT1 = 5'h12;
+parameter S_RACK1 = 5'h13;
+parameter S_RDAT2 = 5'h14;
+parameter S_RACK2 = 5'h15;
+parameter S_RSTART2 = 5'h10;
+parameter S_RDAT3 = 5'h16;
+parameter S_RACK3 = 5'h17;
+parameter S_RDAT4 = 5'h18;
+parameter S_RACK4 = 5'h1a;
+
+reg [4:0] st_iic;
+wire act_write;
+wire act_read;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		st_iic <= S_IDLE;
 	else begin
 		case(st_iic)
-			S_IDLE : ;
-			default : st_iic <= S_IDLE; 
+			S_IDLE : st_iic <=	act_write ? S_WSTART :
+													act_read ? S_RSTART1 : S_IDLE;
+			default :  st_iic <= S_IDLE;
 		endcase
 	end
 end
+
+
+//--------- FSM switch condition -------
+assign act_write = act_iic_write[1] & act_iic_write[0];
+assign act_read  = act_iic_read[1]  & act_iic_read[0];
+
 
 
 wire scl = 1'bz;//scl_nostop;
