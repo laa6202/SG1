@@ -25,6 +25,7 @@ tb.v
 ../../src/control_top/control_top.v
 ../../src/control_top/cfg_reg.v
 ../../src/hmi_top/hmi_top.v
+../../src/hmi_top/vga_top.v
 
 ../../src/sensor_top/echo_handle.v
 ../../src/sensor_top/sensor_core.v

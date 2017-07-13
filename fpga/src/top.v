@@ -17,6 +17,12 @@ ov_rstn,
 ov_pwdn,
 ov_sioc,
 ov_siod,
+//vga output
+vga_r,
+vga_g,
+vga_b,
+vga_hsync,
+vga_vsync,
 //uart inf
 uart_tx,
 uart_rx,
@@ -35,8 +41,8 @@ hrst_n
 output	s1_trig;
 input		s1_echo;
 //ov7670
-output ov_vcc;
-output ov_gnd;
+input  ov_vcc;
+input  ov_gnd;
 input  ov_vsync;
 input  ov_href;
 input  ov_pclk;
@@ -46,6 +52,12 @@ output ov_rstn;
 output ov_pwdn;
 output ov_sioc;
 inout  ov_siod;
+//vga output
+output [4:0]	vga_r;
+output [5:0]	vga_g;
+output [4:0]	vga_b;
+output vga_hsync;
+output vga_vsync;
 //uart slave
 output 	uart_tx;
 input 	uart_rx;
@@ -215,5 +227,20 @@ ov_inf u_ov_inf(
 .rst_n(rst_n)
 );
 
+
+//---------- vga out ----------
+vga_top u_vga_top(
+//vga output
+.vga_r(vga_r),
+.vga_g(vga_g),
+.vga_b(vga_b),
+.vga_hsync(vga_hsync),
+.vga_vsync(vga_vsync),
+
+//clk rst
+.clk_sys(clk_sys),
+.pluse_us(pluse_us),
+.rst_n(rst_n)
+);
 
 endmodule

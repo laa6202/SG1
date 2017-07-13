@@ -46,8 +46,8 @@ top sg1_top(
 .uart_tx(uart_miso),
 .uart_rx(uart_mosi),
 //ov inf
-.ov_vcc(),
-.ov_gnd(),
+.ov_vcc(1'b1),
+.ov_gnd(1'b0),
 .ov_vsync(),
 .ov_href(),
 .ov_pclk(),
@@ -57,6 +57,12 @@ top sg1_top(
 .ov_pwdn(),
 .ov_sioc(),
 .ov_siod(),
+//vga output
+.vga_r(),
+.vga_g(),
+.vga_b(),
+.vga_hsync(),
+.vga_vsync(),
 //hmi_top
 .led(),
 .key_n(key_n),

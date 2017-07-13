@@ -27,8 +27,8 @@ pluse_us,
 rst_n
 
 );
-output ov_vcc;
-output ov_gnd;
+input  ov_vcc;
+input  ov_gnd;
 input  ov_vsync;
 input  ov_href;
 input  ov_pclk;
@@ -71,13 +71,9 @@ assign	ov_xclk = clk_24m;
 
 
 //---------- power down and rst --------
-reg ov_vcc;
-reg ov_gnd;
 reg ov_rstn;
 reg ov_pwdn;
 always @(posedge clk_sys)	begin
-	ov_vcc <= 1'b1;
-	ov_gnd <= 1'b0;
 	ov_rstn <= rst_n;
 	ov_pwdn <= 1'b0;
 end
