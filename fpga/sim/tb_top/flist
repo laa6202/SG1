@@ -26,6 +26,8 @@ tb.v
 ../../src/control_top/cfg_reg.v
 ../../src/hmi_top/hmi_top.v
 ../../src/hmi_top/vga_top.v
+../../src/hmi_top/vga_buf.v
+../../src/hmi_top/vga_inf.v
 
 ../../src/sensor_top/echo_handle.v
 ../../src/sensor_top/sensor_core.v
@@ -41,4 +43,8 @@ tb.v
 ../../src/ov_inf/ov_inf.v
 ../../src/ov_inf/iic_inf.v
 ../../src/ov_inf/iic_reg.v
+../../src/ov_inf/ov_monitor.v
+
+
+../../ip/ram/ram640_16.v
 

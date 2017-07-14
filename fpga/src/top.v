@@ -200,6 +200,10 @@ sensor_core u_sersor(
 
 
 //---------- ov 7670 ------
+wire [15:0]	 cnt_line;
+wire [15:0]	 cnt_pclk;
+wire [7:0]	 data_pclk;
+wire 				 data_vld;
 ov_inf u_ov_inf(
 .ov_vcc(ov_vcc),
 .ov_gnd(ov_gnd),
@@ -212,6 +216,10 @@ ov_inf u_ov_inf(
 .ov_pwdn(ov_pwdn),
 .ov_sioc(ov_sioc),
 .ov_siod(ov_siod),
+.cnt_pclk(cnt_pclk),
+.cnt_line(cnt_line),
+.data_pclk(data_pclk),
+.data_vld(data_vld),
 //fx bus
 .fx_waddr(fx_waddr),
 .fx_wr(fx_wr),
@@ -236,7 +244,11 @@ vga_top u_vga_top(
 .vga_b(vga_b),
 .vga_hsync(vga_hsync),
 .vga_vsync(vga_vsync),
-
+//form ov
+.num_pclk(cnt_pclk),
+.num_line(cnt_line),
+.data_pclk(data_pclk),
+.data_vld(data_vld),
 //clk rst
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),

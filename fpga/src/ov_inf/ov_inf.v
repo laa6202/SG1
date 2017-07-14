@@ -12,6 +12,10 @@ ov_rstn,
 ov_pwdn,
 ov_sioc,
 ov_siod,
+cnt_line,
+cnt_pclk,
+data_pclk,
+data_vld,
 //fx bus
 fx_waddr,
 fx_wr,
@@ -38,6 +42,10 @@ output ov_rstn;
 output ov_pwdn;
 output ov_sioc;
 inout  ov_siod;
+output [15:0]	 cnt_line;
+output [15:0]	 cnt_pclk;
+output [7:0]	 data_pclk;
+output 				 data_vld;
 //fx_bus
 input 				fx_wr;
 input [7:0]		fx_data;
@@ -65,6 +73,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else 
 		cnt_cycle <= cnt_cycle + 2'h1;
 end
+assign  ov_xclk = cnt_cycle[1];
 `else
 assign	ov_xclk = clk_24m;
 `endif
@@ -133,52 +142,20 @@ iic_inf u_iic_inf(
 );
 
 
-//---------- for debug -----------
-reg [7:0] vs_reg;
-always @ (posedge clk_sys)
-	vs_reg <= {vs_reg[6:0],ov_vsync};
-	
-reg ov_vs;
-always @(posedge clk_sys or negedge rst_n)	begin
-	if(~rst_n)
-		ov_vs <= 1'b0;
-	else if(vs_reg == 8'hff)
-		ov_vs <= 1'b1;
-	else if(vs_reg == 8'h0)
-		ov_vs <= 1'b0;
-	else	;
-end
-	
-		
-reg ov_href_reg;
-always @ (posedge clk_sys)
-	ov_href_reg <= ov_href;
-
-reg [1:0] ov_pclk_reg;
-always @ (posedge clk_sys)
-	ov_pclk_reg <= {ov_pclk_reg[0],ov_pclk};
-wire ov_pclk_rasing = (~ov_pclk_reg[1]) & ov_pclk_reg[0];
-
-reg [15:0] cnt_pclk/*synthesis noprune*/;
-always @(posedge clk_sys or negedge rst_n)	begin
-	if(~rst_n)
-		cnt_pclk <= 16'h0;
-	else if(~ov_href_reg)
-		cnt_pclk <= 16'b0;
-	else 
-		cnt_pclk <= ov_pclk_rasing ? (cnt_pclk + 16'h1) : cnt_pclk;
-end
-			
-
-reg [15:0] cnt_vs/*synthesis noprune*/;
-always @(posedge clk_sys or negedge rst_n)	begin
-	if(~rst_n)
-		cnt_vs <= 16'h0;
-	else if(~ov_vs)
-		cnt_vs <= 16'b0;
-	else 
-		cnt_vs <= ov_pclk_rasing ? (cnt_vs + 16'h1) : cnt_vs;
-end
+//---------- ov monitor -----------
+ov_monitor u_ov_monitor(
+.ov_data(ov_data),
+.ov_href(ov_href),
+.ov_vsync(ov_vsync),
+.ov_pclk(ov_pclk),
+.cnt_pclk(cnt_pclk),
+.cnt_line(cnt_line),
+.data_pclk(data_pclk),
+.data_vld(data_vld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 endmodule
