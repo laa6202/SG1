@@ -123,9 +123,13 @@ wire [4:0]	vga_b;
 //assign vga_g = hsync_de & vsync_de ? cnt_line[5:0] : 6'h0;
 //assign vga_b = hsync_de & vsync_de ? cnt_line[4:0] : 5'h0;
 
-assign vga_r = hsync_de & vsync_de ? cnt_pixel[4:0] : 5'h0;
-assign vga_g = hsync_de & vsync_de ? cnt_pixel[4:0] : 6'h0;
-assign vga_b = hsync_de & vsync_de ? cnt_pixel[4:0] : 5'h0;
+//assign vga_r = hsync_de & vsync_de ? cnt_pixel[4:0] : 5'h0;
+//assign vga_g = hsync_de & vsync_de ? {cnt_pixel[4:0],1'b0} : 6'h0;
+//assign vga_b = hsync_de & vsync_de ? cnt_pixel[4:0] : 5'h0;
+
+assign vga_r = hsync_de & vsync_de ? ram_q[15:11] : 5'h0;
+assign vga_g = hsync_de & vsync_de ? 6'h0 : 6'h0;
+assign vga_b = hsync_de & vsync_de ? 5'h0 : 5'h0;
 
 endmodule
 
