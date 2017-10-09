@@ -8,6 +8,8 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module tb
 -- Skipping module top
 -- Compiling module hmi_top
+-- Skipping module hex2bcd
+-- Compiling module freq_gen
 -- Skipping module smg_interface
 -- Skipping module smg_scan_module
 -- Skipping module smg_control_module

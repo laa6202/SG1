@@ -20,6 +20,8 @@ tb.v
 
 ../../src/top.v
 ../../src/hmi_top/hmi_top.v
+../../src/hmi_top/hex2bcd.v
+../../src/hmi_top/freq_gen.v
 ../../src/hmi_top/smg/smg_interface.v
 ../../src/hmi_top/smg/smg_scan_module.v
 ../../src/hmi_top/smg/smg_control_module.v

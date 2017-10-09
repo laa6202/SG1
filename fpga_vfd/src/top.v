@@ -28,6 +28,7 @@ input hrst_n;
 
 
 wire clk_sys;
+wire clk_slow;
 wire rst_n;
 wire pluse_us;
 clk_rst_top u_clk_rst(
@@ -36,7 +37,7 @@ clk_rst_top u_clk_rst(
 .mclk1(mclk1),
 .mclk2(mclk2),
 .clk_sys(clk_sys),
-.clk_slow(),
+.clk_slow(clk_slow),
 .pluse_us(pluse_us),
 .rst_n(rst_n)
 );
@@ -45,12 +46,13 @@ clk_rst_top u_clk_rst(
 //----------- hmi_top --------
 wire [9:0]	freq;
 hmi_top u_hmi_top(
-.key(key),
+.key(~key),
 .freq(freq),
 .smg_data(smg_data),
 .smg_scan(smg_scan),
 //clk rst
 .clk_sys(clk_sys),
+.clk_slow(clk_slow),
 .rst_n(rst_n)
 );
 
@@ -58,7 +60,7 @@ hmi_top u_hmi_top(
 
 //---------- led --------
 wire [3:0]	led;
-assign led[0] = 1'b0;
+assign led[0] = &key;
 assign led[1] = 1'b1;
 assign led[2] = 1'b0;
 assign led[3] = pwm;
