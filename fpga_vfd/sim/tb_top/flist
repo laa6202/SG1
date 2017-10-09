@@ -1,0 +1,50 @@
+-sv
+-timescale "1ns/1ps"
+-l compile.log
+-incr
+
+-v ../lib/cycloneiv_atoms
+-v ../lib/altera_mf
+-v ../lib/220model
+
++define+SIM
+
+dv/clk_gen.v
+dv/rst_gen.v
+dv/key_gen.v
+dv/hc_sr04.v
+dv/rs232.v
+
+
+tb.v
+
+../../src/top.v
+../../src/fx_bus.v
+../../src/clk_rst_top/clk_rst_top.v
+../../src/clk_rst_top/pluse_us_gen.v
+../../src/control_top/control_top.v
+../../src/control_top/cfg_reg.v
+../../src/hmi_top/hmi_top.v
+../../src/hmi_top/vga_top.v
+../../src/hmi_top/vga_buf.v
+../../src/hmi_top/vga_inf.v
+
+../../src/sensor_top/echo_handle.v
+../../src/sensor_top/sensor_core.v
+../../src/sensor_top/lega_box.v
+../../src/sensor_top/alg_box.v
+
+../../src/commu_top/commu_top.v
+../../src/commu_top/urx_filter.v
+../../src/commu_top/phy_urx.v
+../../src/commu_top/phy_utx.v
+../../src/commu_top/fx_master.v
+
+../../src/ov_inf/ov_inf.v
+../../src/ov_inf/iic_inf.v
+../../src/ov_inf/iic_reg.v
+../../src/ov_inf/ov_monitor.v
+
+
+../../ip/ram/ram640_16.v
+
