@@ -44,6 +44,7 @@ top vfd_top(
 .sw(sw),
 .key(key),
 .led(),
+.pwm(),
 //hclk hrst in
 .mclk0(mclk0),	//50m		for xclk
 .mclk1(mclk1),	//100m	for sim

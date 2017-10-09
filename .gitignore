@@ -19,3 +19,13 @@ fpga/dev/incremental_db/README
 /fpga/dev/output_files/top.sld
 /fpga/sim/tb_top/work
 /fpga_vfd/sim/tb_top/work
+/fpga/dev/greybox_tmp
+/fpga/dev/top.qws
+/fpga/dev/output_files/*.smsg
+/fpga_vfd/dev/output_files
+/fpga_vfd/dev/db
+/fpga_vfd/dev/greybox_tmp
+/fpga_vfd/dev/incremental_db
+/fpga_vfd/dev/db
+/fpga_vfd/dev/greybox_tmp
+/fpga_vfd/dev/incremental_db
