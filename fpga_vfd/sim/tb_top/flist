@@ -19,7 +19,12 @@ dv/rs232.v
 tb.v
 
 ../../src/top.v
-../../src/hmi_top.v
+../../src/hmi_top/hmi_top.v
+../../src/hmi_top/smg/smg_interface.v
+../../src/hmi_top/smg/smg_scan_module.v
+../../src/hmi_top/smg/smg_control_module.v
+../../src/hmi_top/smg/smg_encode_module.v
+
 ../../src/clk_rst_top/clk_rst_top.v
 ../../src/clk_rst_top/pluse_us_gen.v
 

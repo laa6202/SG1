@@ -5,6 +5,9 @@ module top(
 sw,
 key,
 led,
+nixie0,
+nixie1,
+nixie2,
 pwm,
 //hclk hrst in
 mclk0,
@@ -13,8 +16,11 @@ mclk2,
 hrst_n
 );
 input					sw;
-input  [7:0]	key;
+input  [2:0]	key;
 output [3:0] 	led;
+output [7:0]	nixie0;
+output [7:0]	nixie1;
+output [7:0]	nixie2;
 output				pwm;
 //hclk hrst in
 input mclk0;
@@ -41,11 +47,14 @@ clk_rst_top u_clk_rst(
 
 
 //----------- hmi_top --------
-wire [7:0]	freq;
+wire [9:0]	freq;
 hmi_top u_hmi_top(
 .sw(sw),
 .key(key),
 .freq(freq),
+.nixie0(nixie0),
+.nixie1(nixie1),
+.nixie2(nixie2),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
