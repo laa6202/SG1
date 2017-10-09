@@ -38,12 +38,12 @@ rs232 rs232_master(
 
 
 //---------- DUT -----------
-wire sw = 1'b0;
-wire [7:0] key = 8'd50;
+wire [2:0] key = 3'd0;
 top vfd_top(
-.sw(sw),
 .key(key),
 .led(),
+.smg_data(),
+.smg_scan(),
 .pwm(),
 //hclk hrst in
 .mclk0(mclk0),	//50m		for xclk
