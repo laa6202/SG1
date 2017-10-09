@@ -1,0 +1,15 @@
+Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist 
+-- Skipping module clk_gen
+-- Skipping module rst_gen
+-- Skipping module key_gen
+-- Skipping module hc_sr04
+-- Skipping module rs232
+-- Skipping module tb
+-- Compiling module top
+-- Compiling module hmi_top
+-- Skipping module clk_rst_top
+-- Skipping module pluse_us_gen
+
+Top level modules:
+	tb

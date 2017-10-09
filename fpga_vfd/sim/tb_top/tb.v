@@ -38,41 +38,18 @@ rs232 rs232_master(
 
 
 //---------- DUT -----------
-top sg1_top(
-//sensor
-.s1_trig(s1_trig),
-.s1_echo(s1_echo),
-//uart slave
-.uart_tx(uart_miso),
-.uart_rx(uart_mosi),
-//ov inf
-.ov_vcc(1'b1),
-.ov_gnd(1'b0),
-.ov_vsync(),
-.ov_href(),
-.ov_pclk(),
-.ov_xclk(),
-.ov_data(),
-.ov_rstn(),
-.ov_pwdn(),
-.ov_sioc(),
-.ov_siod(),
-//vga output
-.vga_r(),
-.vga_g(),
-.vga_b(),
-.vga_hsync(),
-.vga_vsync(),
-//hmi_top
+wire sw = 1'b0;
+wire [7:0] key = 8'd50;
+top vfd_top(
+.sw(sw),
+.key(key),
 .led(),
-.key_n(key_n),
-.ref0(),
-.ref1(),
-//clk rst 
-.mclk0(mclk0),
-.mclk1(mclk1),
-.mclk2(mclk2),
+//hclk hrst in
+.mclk0(mclk0),	//50m		for xclk
+.mclk1(mclk1),	//100m	for sim
+.mclk2(mclk2),	//1m 		for sim
 .hrst_n(rst_n)
 );
+
 
 endmodule

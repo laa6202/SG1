@@ -18,3 +18,4 @@ fpga/dev/incremental_db/README
 /fpga/dev/output_files/top.jdi
 /fpga/dev/output_files/top.sld
 /fpga/sim/tb_top/work
+/fpga_vfd/sim/tb_top/work
