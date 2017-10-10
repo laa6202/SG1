@@ -6,6 +6,7 @@ freq,
 //clk rst
 clk_sys,
 clk_slow,
+pluse_ms,
 rst_n
 );
 input [2:0]	key;
@@ -13,6 +14,7 @@ output [9:0]	freq;
 //clk rst
 input clk_sys;
 input clk_slow;
+input pluse_ms;
 input rst_n;
 //----------------------------------------
 
@@ -20,9 +22,12 @@ reg [7:0] k0;
 reg [7:0] k1;
 reg [7:0] k2;
 always @ (posedge clk_sys)	begin
-	k0 <= {k0[6:0],key[0]};
-	k1 <= {k1[6:0],key[1]};
-	k2 <= {k2[6:0],key[2]};
+	if(pluse_ms)	begin
+		k0 <= {k0[6:0],key[0]};
+		k1 <= {k1[6:0],key[1]};
+		k2 <= {k2[6:0],key[2]};
+	end
+	else ;
 end
 
 reg [2:0] key_real;

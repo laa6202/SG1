@@ -31,6 +31,7 @@ wire clk_sys;
 wire clk_slow;
 wire rst_n;
 wire pluse_us;
+wire pluse_ms;
 clk_rst_top u_clk_rst(
 .hrst_n(hrst_n),
 .mclk0(mclk0),
@@ -39,6 +40,7 @@ clk_rst_top u_clk_rst(
 .clk_sys(clk_sys),
 .clk_slow(clk_slow),
 .pluse_us(pluse_us),
+.pluse_ms(pluse_ms),
 .rst_n(rst_n)
 );
 
@@ -53,6 +55,7 @@ hmi_top u_hmi_top(
 //clk rst
 .clk_sys(clk_sys),
 .clk_slow(clk_slow),
+.pluse_ms(pluse_ms),
 .rst_n(rst_n)
 );
 

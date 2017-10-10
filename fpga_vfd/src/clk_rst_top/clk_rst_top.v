@@ -9,6 +9,7 @@ mclk2,
 clk_sys,
 clk_slow,
 pluse_us,
+pluse_ms,
 rst_n
 );
 input hrst_n;
@@ -18,6 +19,7 @@ input mclk2;
 output clk_sys;
 output clk_slow;
 output pluse_us;
+output pluse_ms;
 output rst_n;
 //---------------------------------
 //---------------------------------
@@ -46,12 +48,19 @@ wire clk_slow;
 assign clk_slow = clk_1m;
 
 
-//----------- gen pluse 1us at cly_sys zone-------
-pluse_us_gen u_pluse_us_gen(
+//----------- gen pluse 1us at clk_sys zone-------
+pluse_us_gen u_us_gen(
 .pluse_us(pluse_us),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
 
+
+pluse_ms_gen u_ms_gen(
+.pluse_ms(pluse_ms),
+.pluse_us(pluse_us),
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 endmodule

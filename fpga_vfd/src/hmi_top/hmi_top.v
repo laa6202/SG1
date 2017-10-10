@@ -9,6 +9,7 @@ smg_scan,
 //clk rst
 clk_sys,
 clk_slow,
+pluse_ms,
 rst_n
 );
 input [2:0]		key;
@@ -18,6 +19,7 @@ output [5:0]	smg_scan;
 //clk rst
 input clk_sys;
 input clk_slow;
+input pluse_ms;
 input rst_n;
 //-----------------------------------
 //-----------------------------------
@@ -29,6 +31,7 @@ freq_gen u_freq_gen(
 //clk rst
 .clk_sys(clk_sys),
 .clk_slow(clk_slow),
+.pluse_ms(pluse_ms),
 .rst_n(rst_n)
 );
 

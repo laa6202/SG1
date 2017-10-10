@@ -6,7 +6,7 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module hc_sr04
 -- Skipping module rs232
 -- Skipping module tb
--- Skipping module top
+-- Compiling module top
 -- Compiling module hmi_top
 -- Skipping module hex2bcd
 -- Compiling module freq_gen
@@ -14,8 +14,9 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module smg_scan_module
 -- Skipping module smg_control_module
 -- Skipping module smg_encode_module
--- Skipping module clk_rst_top
+-- Compiling module clk_rst_top
 -- Skipping module pluse_us_gen
+-- Compiling module pluse_ms_gen
 
 Top level modules:
 	tb

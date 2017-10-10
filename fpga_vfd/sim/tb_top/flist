@@ -29,5 +29,6 @@ tb.v
 
 ../../src/clk_rst_top/clk_rst_top.v
 ../../src/clk_rst_top/pluse_us_gen.v
+../../src/clk_rst_top/pluse_ms_gen.v
 
 
