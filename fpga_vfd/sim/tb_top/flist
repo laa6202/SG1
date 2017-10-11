@@ -31,4 +31,6 @@ tb.v
 ../../src/clk_rst_top/pluse_us_gen.v
 ../../src/clk_rst_top/pluse_ms_gen.v
 
+../../src/vfd_top/vfd_top.v
 
+../../ip/calc/div.v

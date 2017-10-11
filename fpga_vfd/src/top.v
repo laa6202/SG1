@@ -61,6 +61,17 @@ hmi_top u_hmi_top(
 
 
 
+//---------- vfd_top --------
+wire pwm;
+vfd_top u_vfd( 
+.pwm(pwm),
+.freq(freq),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 //---------- led --------
 wire [3:0]	led;
 assign led[0] = &key;
