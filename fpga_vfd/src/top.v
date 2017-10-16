@@ -7,6 +7,7 @@ led,
 smg_data,
 smg_scan,
 pwm,
+pwm2,
 //hclk hrst in
 mclk0,
 mclk1,
@@ -18,6 +19,7 @@ output [3:0] 	led;
 output [7:0]	smg_data;
 output [5:0]	smg_scan;
 output				pwm;
+output				pwm2;
 //hclk hrst in
 input mclk0;
 input mclk1;
@@ -63,6 +65,7 @@ hmi_top u_hmi_top(
 
 //---------- vfd_top --------
 wire pwm;
+wire pwm2 = ~pwm;
 vfd_top u_vfd( 
 .pwm(pwm),
 .freq(freq),
